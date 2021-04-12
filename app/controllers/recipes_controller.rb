@@ -16,6 +16,8 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
+	  recipe = Recipe.new
+	  render :new, locals: { recipe: recipe }
   end
 
   # POST /recipes

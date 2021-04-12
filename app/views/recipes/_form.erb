@@ -1,0 +1,17 @@
+<%# A recipe must contain a title, preparation time (prep_time) in minutes, the number of people it 
+serves (serves), and at least one ingredient and one step.  
+
+The user should have the option to also put in the cooking time (cook_time) in minutes and the country 
+of origin (supplied from a drop down list of countries).
+
+Each ingredient's item field can be up to 100 characters, and can not be blank.
+
+Each step's description field can be up to 200 characters, and can not be blank. %>
+
+<%= simple_form_for recipe do |f| %>
+    <%= f.input :title, placeholder: 'Title' %>
+    <%= f.input :prep_time, placeholder: 'Prep time in minutes' %>
+    <%= f.input :cook_time, placeholder: 'Cook time in minutes' %>
+    <%= f.input :servings, placeholder: 'Number of people this serves' %>   
+    <%= f.button :submit %>
+<% end %>
