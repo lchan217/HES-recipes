@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
   # GET /recipes
   def index
-    @recipes = Recipe.all
+    recipes = Recipe.all
+    render :index, locals: { recipes: recipes }
   end
 
   # GET /recipes/:id
