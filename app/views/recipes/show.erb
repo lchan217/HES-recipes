@@ -1,0 +1,26 @@
+<h1><%= recipe.title %></h1>
+
+<p>
+    <b>Prep Time: </b><%= recipe.prep_time %><br/>
+    <b>Cook Time: </b><%= recipe.cook_time %><br/> 
+    <b>Servings: </b><%= recipe.servings %><br/>
+    <b>Origin: </b><%= recipe.origin %><br/>
+</p>
+
+<p>
+    <h2>Ingredients</h2>
+    <ul>
+        <% ingredients.each do |ingredient| %>
+            <li><%= ingredient.item%></li>
+        <% end %>
+    </ul>
+</p>
+
+<p>
+    <h2>Steps</h2>
+        <ol>
+            <% steps.each do |step| %>
+               <%= "#{step.sequence}: #{step.description}" %><br/>
+            <% end %>
+        </ol>
+</p>

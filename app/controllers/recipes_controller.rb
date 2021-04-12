@@ -1,12 +1,17 @@
 class RecipesController < ApplicationController
   # GET /recipes
   def index
-    recipes = Recipe.all
-    render :index, locals: { recipes: recipes }
+      recipes = Recipe.all
+      render :index, locals: { recipes: recipes }
   end
 
   # GET /recipes/:id
   def show
+      recipe =  Recipe.find(params[:id])
+	  ingredients = recipe.ingredients
+	  steps = recipe.steps.sort_by(&:sequence)
+	
+      render :show, locals: { recipe: recipe, ingredients: ingredients, steps: steps }
   end
 
   # GET /recipes/new
