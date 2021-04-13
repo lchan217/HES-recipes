@@ -12,6 +12,7 @@ Each step's description field can be up to 200 characters, and can not be blank.
     <%= f.input :title, placeholder: 'Title' %>
     <%= f.input :prep_time, placeholder: 'Prep time in minutes' %>
     <%= f.input :cook_time, placeholder: 'Cook time in minutes' %>
-    <%= f.input :servings, placeholder: 'Number of people this serves' %>   
+    <%= f.input :servings, placeholder: 'Number of people this serves' %>
+    <%= f.country_select :origin, include_blank: 'Select a country' %>
     <%= f.button :submit %>
 <% end %>

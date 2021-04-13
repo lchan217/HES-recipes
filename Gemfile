@@ -13,6 +13,7 @@ gem 'jquery-rails'
 
 gem 'simple_form'
 gem 'pry'
+gem 'country_select'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
