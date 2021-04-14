@@ -1,0 +1,5 @@
+<div class="nested-fields">
+    <%= f.input :sequence %>
+    <%= f.input :description, input_html: { maxlength: 200 }, hint: '200 max chars' %>
+    <%= link_to_remove_association "remove item", f %>
+</div>
