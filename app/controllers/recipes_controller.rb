@@ -17,6 +17,8 @@ class RecipesController < ApplicationController
 	# GET /recipes/new
 	def new
 		recipe = Recipe.new
+		recipe.ingredients.build
+		recipe.steps.build
 		render :new, locals: { recipe: recipe }
 	end
 
@@ -24,9 +26,10 @@ class RecipesController < ApplicationController
 	def create
 		recipe = Recipe.new(recipe_params)
 		if recipe.save
-			# route to show page?
+			redirect_to recipe_path(recipe)
 		else
-			#error
+			flash[:error] = recipe.errors.full_messages.to_sentence
+			render :new, locals: { recipe: recipe }
 		end
 	end
 
@@ -44,6 +47,6 @@ class RecipesController < ApplicationController
 
 	private
 	def recipe_params
-		params.require(:recipe).permit(:title, :prep_time, :cook_time, :servings, :origin)
+		params.require(:recipe).permit(:title, :prep_time, :cook_time, :servings, :origin, ingredients_attributes: [:id, :item], steps_attributes: [:id, :sequence, :description])
 	end
 end
