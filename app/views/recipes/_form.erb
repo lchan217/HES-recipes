@@ -7,10 +7,6 @@ of origin (supplied from a drop down list of countries).
 Each ingredient's item field can be up to 100 characters, and can not be blank.
 
 Each step's description field can be up to 200 characters, and can not be blank. %>
-<% if flash[:error] %>
-    <%= flash[:error] %>
-<% end %>
-
 <%= simple_form_for recipe do |f| %>
     <%= f.input :title, placeholder: 'Title' %>
     <%= f.input :prep_time, placeholder: 'Prep time in minutes' %>
@@ -18,9 +14,17 @@ Each step's description field can be up to 200 characters, and can not be blank.
     <%= f.input :servings, placeholder: 'Number of people this serves' %>
     <%= f.country_select :origin, include_blank: 'Select a country' %>
 
-    <%= f.simple_fields_for :ingredients do |ingredient_form| %>
-        <%= ingredient_form.input :item, input_html: { maxlength: 100 }, hint: '100 max chars' %>
-    <% end %>
+    <%# <%= f.simple_fields_for :ingredients do |ingredient_form| %> %>
+        <%# <%= ingredient_form.input :item, input_html: { maxlength: 100 }, hint: '100 max chars' %> %>
+    <%# <% end %> %>
+    <div id="ingredients">
+        <%= f.simple_fields_for :ingredients do |ingredient| %>
+            <%= render 'ingredient_fields', f: ingredient %>
+            <div class="links">
+                <%= link_to_add_association 'add ingredient', f, :ingredients %>
+            </div>        
+        <% end %>
+    </div>
 
     <%= f.simple_fields_for :steps do |step_form| %>
         <%= step_form.input :sequence %>
@@ -29,3 +33,4 @@ Each step's description field can be up to 200 characters, and can not be blank.
 
     <%= f.button :submit %>
 <% end %>
+<button class="click-me">Click me</button>

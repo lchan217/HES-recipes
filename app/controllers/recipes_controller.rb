@@ -28,7 +28,6 @@ class RecipesController < ApplicationController
 		if recipe.save
 			redirect_to recipe_path(recipe)
 		else
-			flash[:error] = recipe.errors.full_messages.to_sentence
 			render :new, locals: { recipe: recipe }
 		end
 	end
@@ -47,6 +46,6 @@ class RecipesController < ApplicationController
 
 	private
 	def recipe_params
-		params.require(:recipe).permit(:title, :prep_time, :cook_time, :servings, :origin, ingredients_attributes: [:id, :item], steps_attributes: [:id, :sequence, :description])
+		params.require(:recipe).permit(:title, :prep_time, :cook_time, :servings, :origin, ingredients_attributes: [:id, :item, :_destroy], steps_attributes: [:id, :sequence, :description, :_destroy])
 	end
 end
