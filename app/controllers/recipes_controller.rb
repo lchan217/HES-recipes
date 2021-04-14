@@ -50,6 +50,8 @@ class RecipesController < ApplicationController
 
 	# DELETE /recipes/:id
 	def destroy
+        Recipe.find(params[:id]).destroy
+        redirect_to recipes_path
 	end
 
 	private
