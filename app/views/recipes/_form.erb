@@ -7,7 +7,7 @@ of origin (supplied from a drop down list of countries).
 Each ingredient's item field can be up to 100 characters, and can not be blank.
 
 Each step's description field can be up to 200 characters, and can not be blank. %>
-<% if errors.any? %>
+<% if errors.present? %>
     <%= errors.to_sentence %>
 <% end %>
 

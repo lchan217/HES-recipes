@@ -28,14 +28,14 @@ class RecipesController < ApplicationController
 		if recipe.save
 			redirect_to recipe_path(recipe)
 		else
-			render :new, locals: { recipe: recipe }
+			render :new, locals: { recipe: recipe, errors: recipe.errors.full_messages }
 		end
 	end
 
 	# GET /recipes/:id/edit
 	def edit
         recipe = Recipe.find(params[:id])
-        render :edit, locals: { recipe: recipe }
+        render :edit, locals: { recipe: recipe, errors: nil }
 	end
 
 	# PUT /recipes/:id
