@@ -34,10 +34,18 @@ class RecipesController < ApplicationController
 
 	# GET /recipes/:id/edit
 	def edit
+        recipe = Recipe.find(params[:id])
+        render :edit, locals: { recipe: recipe }
 	end
 
 	# PUT /recipes/:id
 	def update
+        recipe = Recipe.find(params[:id])
+		if recipe.update(recipe_params)
+			redirect_to recipe_path(recipe)
+		else
+			render :edit, locals: { recipe: recipe }
+		end
 	end
 
 	# DELETE /recipes/:id
