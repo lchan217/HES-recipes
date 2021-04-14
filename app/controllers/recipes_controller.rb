@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
 		recipe = Recipe.new
 		recipe.ingredients.build
 		recipe.steps.build
-		render :new, locals: { recipe: recipe }
+		render :new, locals: { recipe: recipe, errors: recipe.errors.full_messages }
 	end
 
 	# POST /recipes
@@ -44,7 +44,7 @@ class RecipesController < ApplicationController
 		if recipe.update(recipe_params)
 			redirect_to recipe_path(recipe)
 		else
-			render :edit, locals: { recipe: recipe }
+			render :edit, locals: { recipe: recipe, errors: recipe.errors.full_messages }
 		end
 	end
 
