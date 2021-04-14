@@ -22,7 +22,7 @@ recipe.steps.new([
   {:description=>'Combine all ingredients and form into four 1/4 pound patties',:sequence=>2, :recipe_id=>1},
   {:description=>'Place each patty on the grill.  After 2 minutes, slide a spatula under each patty and rotate 1/4 turn to sear a cross-hatch pattern.',:sequence=>3, :recipe_id=>1},
   {:description=>'After 4 additional minutes (6 minutes total), flip the patties and top with cheese if desired.  Cook an additional 3-4 minutes.',:sequence=>4, :recipe_id=>1},
-  {:description=>'Serve with toasted buns, lettuce, tomato, onion.  Consider jalapeno peppers, horseradish, and other spices.',:sequence=>5, :recipe_id=>1}
+  {:description=>'Serve with toasted buns, lettuce, tomato, onion.  Consider jalapeno peppers, horseradish, and other spices.',:sequence=>3, :recipe_id=>1}
 ])
 
 recipe.save
