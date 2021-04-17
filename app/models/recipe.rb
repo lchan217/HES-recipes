@@ -8,6 +8,7 @@ class Recipe < ActiveRecord::Base
     validates_presence_of :title, :prep_time, :servings
     validates :ingredients, presence: true
     validates :steps, presence: true
+    validates :prep_time, :cook_time, :servings, :numericality => { :greater_than_or_equal_to => 0 }
 
     def total_time
         if cook_time
