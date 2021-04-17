@@ -1,0 +1,45 @@
+input,
+select {
+  width: 30%;
+  margin: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.long-input {
+  width: 50%;
+}
+
+.nested-fields {
+  display: grid;
+  grid-template-columns: 85% 15%;
+  align-items: center;
+}
+
+.steps-wrapper {
+  border-bottom: 2px rgb(128, 128, 128) solid;
+}
+.links {
+  margin: 24px 0;
+}
+
+.create-recipe {
+  float: right;
+}
+
+.add_fields::before {
+  content: "+";
+  margin: 0 2px;
+}
+.add_fields {
+  color: green;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.remove_fields {
+  color: red;
+  text-decoration: none;
+  font-weight: 700;
+}

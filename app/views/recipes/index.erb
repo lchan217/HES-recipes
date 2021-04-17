@@ -1,4 +1,6 @@
-<%= link_to 'Create New Recipe', new_recipe_path %>
+<%= stylesheet_link_tag "recipes" %>
+
+<%= button_to "Create New Recipe", new_recipe_path, method: :get, :class => 'primary-button button-link'%>
 
 <p>
   Please choose from the list of recipes below.
@@ -11,6 +13,7 @@
     <th>Cook time</th>
     <th>Prep time</th>
     <th>Total time</th>
+    <th></th>
   </tr>
 
   <% recipes.each do |recipe| %>
@@ -20,6 +23,10 @@
       <td><%= recipe.cook_time %></td>
       <td><%= recipe.prep_time %></td>
       <td><%= recipe.total_time %></td>
+      <td>
+        <%= link_to "Edit", edit_recipe_path(recipe) %> <br/>
+        <%= link_to 'Delete', recipe_path(recipe), method: :delete %>
+      </td>
     </tr>
   <% end %>
 

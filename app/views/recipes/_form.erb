@@ -7,30 +7,32 @@ of origin (supplied from a drop down list of countries).
 Each ingredient's item field can be up to 100 characters, and can not be blank.
 
 Each step's description field can be up to 200 characters, and can not be blank. %>
-<% if errors.present? %>
-    <%= errors.to_sentence %>
-<% end %>
-
 <%= simple_form_for recipe do |f| %>
+    <%= f.button :submit, class: 'primary-button button-link create-recipe' %>
     <%= f.input :title, placeholder: 'Title' %>
     <%= f.input :prep_time, placeholder: 'Prep time in minutes' %>
     <%= f.input :cook_time, placeholder: 'Cook time in minutes' %>
     <%= f.input :servings, placeholder: 'Number of people this serves' %>
-    <%= f.country_select :origin, include_blank: 'Select a country' %>
+    Origin
+    <%= f.country_select :origin, include_blank: 'Select a origin country' %>
 
     <%= f.simple_fields_for :ingredients do |ingredient| %>
         <%= render 'ingredient_fields', f: ingredient %>   
     <% end %>
     <div class="links">
-        <%= link_to_add_association 'add ingredient', f, :ingredients %>
+        <%= link_to_add_association 'Add Ingredient', f, :ingredients %>
     </div>     
 
     <%= f.simple_fields_for :steps do |step| %>
         <%= render 'step_fields', f: step %>     
     <% end %>
     <div class="links">
-        <%= link_to_add_association 'add step', f, :steps %>
-    </div>   
+        <%= link_to_add_association 'Add Step', f, :steps %>
+    </div> 
+<% end %>
 
-    <%= f.button :submit %>
+<% if errors.present? %>
+    <div class="error">
+        <%= errors.to_sentence %>
+    </div>
 <% end %>
