@@ -17,21 +17,21 @@ Each step's description field can be up to 200 characters, and can not be blank.
     <%= f.country_select :origin, include_blank: 'Select a origin country' %>
     
     <h2>Ingredients</h2>
-    <i>100 max characters</i>
+    <i>Rules: 100 max characters & must have at least 1 ingredient</i>
     <%= f.simple_fields_for :ingredients do |ingredient| %>
         <%= render 'ingredient_fields', f: ingredient %>   
     <% end %>
     <div class="links">
-        <%= link_to_add_association 'Add Ingredient', f, :ingredients %>
+        <%= link_to_add_association 'Add Ingredient', f, :ingredients, class: 'add-ingredients' %>
     </div>     
 
     <h2>Steps</h2>
-    <i>200 max characters</i>
+    <i>Rules: 200 max characters & must have at least 1 step</i>
     <%= f.simple_fields_for :steps do |step| %>
         <%= render 'step_fields', f: step %>     
     <% end %>
     <div class="links">
-        <%= link_to_add_association 'Add Step', f, :steps %>
+        <%= link_to_add_association 'Add Step', f, :steps, class: 'add-steps' %>
     </div> 
 <% end %>
 
