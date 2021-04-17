@@ -33,13 +33,25 @@ select {
   margin: 0 2px;
 }
 .add_fields {
-  color: green;
+  color: rgb(0, 128, 0);
   text-decoration: none;
   font-weight: 700;
 }
 
+.add_fields:hover {
+  color: rgb(60, 179, 113);
+}
+
 .remove_fields {
-  color: red;
+  color: rgb(255, 0, 0);
   text-decoration: none;
   font-weight: 700;
+}
+
+.remove_fields:hover {
+  color: rgb(240, 128, 128);
+}
+
+a {
+  margin: 0 8px;
 }

@@ -70,4 +70,5 @@ select {
 
 .error {
   color: red;
+  font-style: italic;
 }
