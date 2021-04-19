@@ -9,13 +9,8 @@ $(document).on("click", ".add-steps", countStepsOnAdd)
 $(document).on("click", ".remove-ingredients", countIngredientsOnRemove)
 $(document).on("click", ".remove-steps", countStepsOnRemove)
 
-// function hideOnLoad() {
-//     $('.remove-ingredients').hide()
-//     $('.remove-steps').hide()
-// }
-
 function countIngredientsOnAdd(){
-    const ingredientLength = $('.remove-ingredients').length
+    const ingredientLength = $('.remove-ingredients:visible').length
     if(ingredientLength === 1){
         $('.remove-ingredients').hide()
     } else {
@@ -24,8 +19,7 @@ function countIngredientsOnAdd(){
 }
 
 function countIngredientsOnRemove(){
-    const ingredientLength = $('.remove-ingredients').length
-    $(this).remove()
+    const ingredientLength = $(".remove-ingredients:visible").length;     
     if(ingredientLength === 2){
         $('.remove-ingredients').hide()
     } else {
@@ -34,7 +28,7 @@ function countIngredientsOnRemove(){
 }
 
 function countStepsOnAdd(){
-    const ingredientLength = $('.remove-steps').length
+    const ingredientLength = $('.remove-steps:visible').length
     if(ingredientLength === 1){
         $('.remove-steps').hide()
     } else {
@@ -43,8 +37,7 @@ function countStepsOnAdd(){
 }
 
 function countStepsOnRemove(){
-    const ingredientLength = $('.remove-steps').length
-    $(this).remove()
+    const ingredientLength = $('.remove-steps:visible').length
     if(ingredientLength === 2){
         $('.remove-steps').hide()
     } else {

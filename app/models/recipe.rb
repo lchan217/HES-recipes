@@ -1,9 +1,9 @@
 class Recipe < ActiveRecord::Base
-    has_many :ingredients
-    has_many :steps
+    has_many :ingredients, inverse_of: :recipe
+    has_many :steps, inverse_of: :recipe
 
-    accepts_nested_attributes_for :ingredients, allow_destroy: true, reject_if: :all_blank
-    accepts_nested_attributes_for :steps, allow_destroy: true, reject_if: :all_blank
+    accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
+    accepts_nested_attributes_for :steps, reject_if: :all_blank, allow_destroy: true
 
     validates_presence_of :title, :prep_time, :servings
     validates :ingredients, presence: true
