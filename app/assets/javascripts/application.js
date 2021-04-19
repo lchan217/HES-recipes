@@ -4,13 +4,14 @@
 //= require cocoon
 
 $(document).on("DOMContentLoaded", countIngredientsOnAdd)
+$(document).on("DOMContentLoaded", countStepsOnAdd)
 $(document).on("click", ".add-ingredients", countIngredientsOnAdd)
 $(document).on("click", ".add-steps", countStepsOnAdd)
 $(document).on("click", ".remove-ingredients", countIngredientsOnRemove)
 $(document).on("click", ".remove-steps", countStepsOnRemove)
 
 function countIngredientsOnAdd(){
-    const ingredientLength = $('.remove-ingredients:visible').length
+    const ingredientLength = $('.recipe_ingredients_item').length   
     if(ingredientLength === 1){
         $('.remove-ingredients').hide()
     } else {
@@ -19,7 +20,7 @@ function countIngredientsOnAdd(){
 }
 
 function countIngredientsOnRemove(){
-    const ingredientLength = $(".remove-ingredients:visible").length;     
+    const ingredientLength = $(".recipe_ingredients_item:visible").length;     
     if(ingredientLength === 2){
         $('.remove-ingredients').hide()
     } else {
@@ -28,7 +29,7 @@ function countIngredientsOnRemove(){
 }
 
 function countStepsOnAdd(){
-    const ingredientLength = $('.remove-steps:visible').length
+    const ingredientLength = $('.recipe_steps_description').length
     if(ingredientLength === 1){
         $('.remove-steps').hide()
     } else {
@@ -37,7 +38,7 @@ function countStepsOnAdd(){
 }
 
 function countStepsOnRemove(){
-    const ingredientLength = $('.remove-steps:visible').length
+    const ingredientLength = $('.recipe_steps_description:visible').length
     if(ingredientLength === 2){
         $('.remove-steps').hide()
     } else {
