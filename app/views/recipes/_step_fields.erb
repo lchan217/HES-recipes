@@ -1,7 +1,7 @@
 <div class="nested-fields steps-wrapper">
     <div>
         <%= f.input :sequence %>
-        <%= f.input :description, input_html: { maxlength: 200 }, input_html: { class: 'long-input' } %>
+        <%= f.input :description, maxlength: 200, input_html: { class: 'long-input' } %>
     </div>
     <%= link_to_remove_association "Remove", f, class: 'remove-steps' %>
 </div>

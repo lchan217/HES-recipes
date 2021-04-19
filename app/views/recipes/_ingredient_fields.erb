@@ -1,4 +1,4 @@
 <div class="nested-fields">
-    <%= f.input :item, input_html: { maxlength: 100 }, input_html: { class: 'long-input' }%>
+    <%= f.input :item, maxlength: 100, input_html: { class: 'long-input' }%>
     <%= link_to_remove_association "Remove", f, class: 'remove-ingredients' %>
 </div>
